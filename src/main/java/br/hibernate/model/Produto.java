@@ -6,6 +6,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.validation.constraints.NotNull;
+import org.hibernate.validator.constraints.NotBlank;
 
 @Entity
 public class Produto implements Serializable {
@@ -14,10 +16,14 @@ public class Produto implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @NotBlank(message = "Preencha o campo descrição")
     private String descricao;
+    @NotNull(message = "Preencha o campo quantidade")
     private Integer quantidade;
+    @NotNull(message = "Preencha o campo valor")
     private Double valor;
     @ManyToOne
+    @NotNull(message = "Selecione uma categoria")
     private Categoria categoria;
 
     public String getDescricao() {
