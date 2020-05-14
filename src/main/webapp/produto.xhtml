@@ -33,7 +33,9 @@
                     <h:outputText value="Descrição" />
                 </div>
                  <div>
-                     <h:inputText value="#{produtoController.produto.descricao}" />
+                     <h:inputText value="#{produtoController.produto.descricao}" 
+                                  required="true"
+                                  requiredMessage="Preencha o campo Descrição"/>
                  </div>
              </div>
              <div class="form-control">
@@ -41,7 +43,9 @@
                     <h:outputText value="Quantidade" />
                 </div>
                  <div>
-                     <h:inputText value="#{produtoController.produto.quantidade}" />
+                     <h:inputText value="#{produtoController.produto.quantidade}"
+                                      required="true"
+                                      requiredMessage="Preencha o campo Quantidade"/>
                  </div>
              </div>
              <div class="form-control">
@@ -49,7 +53,9 @@
                     <h:outputText value="Valor" />
                 </div>
                  <div>
-                     <h:inputText value="#{produtoController.produto.valor}" />
+                     <h:inputText value="#{produtoController.produto.valor}"
+                                  required="true"
+                                  requiredMessage="Preencha o campo Valor"/>
                  </div>
              </div>
              <div class="form-control">
@@ -58,6 +64,8 @@
                 </div>
                  <div>
                      <h:selectOneMenu value="#{produtoController.produto.categoria}"
+                                      required="true"
+                                      requiredMessage="Selecione uma Categoria"
                                       converter="categoriaConverter">
                          <f:selectItem itemLabel="Selecione uma categoria" />
                          <f:selectItems value="#{produtoController.categorias}" 
