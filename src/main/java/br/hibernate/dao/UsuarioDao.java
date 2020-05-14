@@ -1,15 +1,13 @@
 package br.hibernate.dao;
 
+import static br.hibernate.dao.ConnectionFactory.emf;
 import br.hibernate.model.Usuario;
 import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
 
 public class UsuarioDao {
+    private EntityManager em = ConnectionFactory.getConnection();
+
     public Usuario salvar(Usuario usuario) {
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory("hibernatePU");
-        EntityManager em = emf.createEntityManager();
-        
         try {
             em.getTransaction().begin();
             em.persist(usuario);
