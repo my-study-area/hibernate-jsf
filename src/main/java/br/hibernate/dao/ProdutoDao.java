@@ -1,6 +1,7 @@
 package br.hibernate.dao;
 
 import br.hibernate.model.Produto;
+import java.util.List;
 import javax.persistence.EntityManager;
 
 public class ProdutoDao {
@@ -19,5 +20,14 @@ public class ProdutoDao {
         }
         return produto;
     }
-    
+
+    public List<Produto> listarTodas() {
+        List<Produto> produtos = null;
+        try {
+            produtos = em.createQuery("from Produto p").getResultList();
+        } catch (Exception e) {
+            System.err.println(e);
+        }
+        return produtos;
+    }
 }
