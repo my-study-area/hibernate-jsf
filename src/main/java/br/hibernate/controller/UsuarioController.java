@@ -1,16 +1,15 @@
 package br.hibernate.controller;
 
 import br.hibernate.model.Usuario;
+import br.hibernate.dao.UsuarioDao;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Named;
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
 
 @Named
 @RequestScoped
 public class UsuarioController {
     private Usuario usuario = new Usuario();
+    private UsuarioDao dao = new UsuarioDao();
 
     public UsuarioController() {
     }
@@ -24,25 +23,9 @@ public class UsuarioController {
     }
 
     public void salvar() {
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory("hibernatePU");
-        EntityManager em = emf.createEntityManager();
-        
-        try {
-            em.getTransaction().begin();
-            em.persist(usuario);
-            em.getTransaction().commit();
-        } catch (Exception e) {
-            System.out.println(e);
-            em.getTransaction().rollback();
-        } finally {
-            em.close();
-        }
-
-        emf.close();
-        System.out.println("Usuário: " + usuario);
-        
+        System.out.println("Usuario cadastrado");
+        dao.salvar(usuario);
         usuario = new Usuario();
-        
     }
     
 }
