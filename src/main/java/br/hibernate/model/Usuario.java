@@ -53,7 +53,7 @@ public class Usuario implements Serializable {
 
     @Override
     public String toString() {
-        return "br.hibernate.model.Usuario[ id=" + id + " ]";
+        return "Usuario{" + "id=" + id + ", nome=" + nome + '}';
     }
-    
+
 }
