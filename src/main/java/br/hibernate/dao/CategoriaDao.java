@@ -1,6 +1,7 @@
 package br.hibernate.dao;
 
 import br.hibernate.model.Categoria;
+import java.util.List;
 import javax.persistence.EntityManager;
 
 public class CategoriaDao {
@@ -18,6 +19,16 @@ public class CategoriaDao {
             em.close();
         }
         return categoria;
+    }
+
+    public List<Categoria> listarTodas() {
+        List<Categoria> categorias = null;
+        try {
+            categorias = em.createQuery("from Categoria c").getResultList();
+        } catch (Exception e) {
+            System.err.println(e);
+        }
+        return categorias;
     }
     
 }

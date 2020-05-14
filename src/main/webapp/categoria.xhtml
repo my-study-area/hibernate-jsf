@@ -1,5 +1,6 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
     xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
     xmlns:p="http://primefaces.org/ui">
      <h:head>
      </h:head>
@@ -39,6 +40,22 @@
                      </p>
                  </div>
              </div>
+         </h:form>
+         <h:form id="formTable">
+             <h:dataTable value="#{categoriaController.categorias}" var="categoria">
+                <h:column>
+                    <f:facet name="header"> 
+                        <h:outputText value="ID" /> 
+                    </f:facet> 
+                    <h:outputText value="#{categoria.id}"></h:outputText>
+                </h:column>
+                <h:column>
+                    <f:facet name="header"> 
+                        <h:outputText value="Descrição" /> 
+                    </f:facet> 
+                    <h:outputText value="#{categoria.descricao}"></h:outputText>
+                </h:column>
+             </h:dataTable>
          </h:form>
      </h:body>
 </html>
