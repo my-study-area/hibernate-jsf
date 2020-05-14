@@ -13,7 +13,7 @@
              </ul>
          </div>
          <div class="title">
-             Cadastro de Categoria
+             Cadastro de Produto
          </div>
          <h:form class="form">
              <div class="form-control">
@@ -21,21 +21,37 @@
                     <h:outputText value="Id" />
                 </div>
                  <div>
-                     <h:inputText value="#{categoriaController.categoria.id}" />
+                     <h:inputText value="#{produtoController.produto.id}" />
                  </div>
              </div>
              <div class="form-control">
                 <div>
-                    <h:outputText value="Nome" />
+                    <h:outputText value="Descrição" />
                 </div>
                  <div>
-                     <h:inputText value="#{categoriaController.categoria.descricao}" />
+                     <h:inputText value="#{produtoController.produto.descricao}" />
+                 </div>
+             </div>
+             <div class="form-control">
+                <div>
+                    <h:outputText value="Quantidade" />
+                </div>
+                 <div>
+                     <h:inputText value="#{produtoController.produto.quantidade}" />
+                 </div>
+             </div>
+             <div class="form-control">
+                <div>
+                    <h:outputText value="Valor" />
+                </div>
+                 <div>
+                     <h:inputText value="#{produtoController.produto.valor}" />
                  </div>
              </div>
              <div class="form-control">
                  <div>
                      <p>
-                         <h:commandButton value="Salvar" action="#{categoriaController.salvar}" />
+                         <h:commandButton value="Salvar" action="#{produtoController.salvar}" />
                      </p>
                  </div>
              </div>
